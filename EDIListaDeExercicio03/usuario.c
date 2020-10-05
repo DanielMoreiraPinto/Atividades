@@ -66,8 +66,11 @@ int main()
         printf("Vetor ordenado: ");
         for(i=0; i < n; i++)
         {
-            auxPtr = (int*) colRetirar(c, colBuscarPorIndice(c, i));
-            printf("%d ", *auxPtr);
+            auxPtr = (int*) colRetirar(c, colBuscarPorIndice(c, 0));
+            if(auxPtr != NULL)
+            {
+                printf("%f ", *auxPtr);
+            }
         }
         break; //case 1
 
@@ -97,8 +100,11 @@ int main()
         printf("Vetor ordenado: ");
         for(i=0; i < n; i++)
         {
-            auxPtr = (float*) colRetirar(c, colBuscarPorIndice(c, i));
-            printf("%f ", *auxPtr);
+            auxPtr = (float*) colRetirar(c, colBuscarPorIndice(c, 0));
+            if(auxPtr != NULL)
+            {
+                printf("%f ", *auxPtr);
+            }
         }
         break; //case 2
         
@@ -106,6 +112,8 @@ int main()
         printf("Opcao invalida");
         break; //default
     } //switch(op)
+
+    colDestruir(c);
 
     return 0;
 }

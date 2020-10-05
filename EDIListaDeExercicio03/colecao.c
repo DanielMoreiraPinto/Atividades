@@ -102,8 +102,20 @@ void *colBuscarPorIndice(Colecao *c, int indice)
 
 int meuQsort(Colecao *c, int (*comp)(void *, void *))
 {
+    int i;
+    void *aux;
     if(c != NULL)
     {
-        
+        for(i=0; i < c->numItens-1; i++)
+        {
+            if(comp(c->itens[i], c->itens[i+1]) == 1)
+            {
+                aux = c->itens[i];
+                c->itens[i] = c->itens[i+1];
+                c->itens[i+1] = aux;
+            }
+        }
+        return TRUE;
     }
+    return FALSE;
 }
