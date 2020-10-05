@@ -99,3 +99,11 @@ void *colBuscarPorIndice(Colecao *c, int indice)
     }
     return NULL;
 }
+
+int meuQsort(Colecao *c, int (*comp)(void *, void *))
+{
+    if(c != NULL)
+    {
+        
+    }
+}

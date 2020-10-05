@@ -2,14 +2,22 @@
 #include <stdlib.h>
 #include "colecao.h"
 
-int comparaInt(const void *a, const void *b)
+int comparaInt(void *a, void *b)
 {
-    return( *(int*)a - *(int*)b );
+    if(*(int*)a > *(int*)b)
+    {
+        return 1;
+    }
+    return 0;
 }
 
-int comparaFloat(const void *a, const void *b)
+int comparaFloat(void *a, void *b)
 {
-    return( *(float*)a - *(float*)b );
+    if(*(float*)a > *(float*)b)
+    {
+        return 1;
+    }
+    return 0;
 }
 
 int main()
@@ -48,8 +56,13 @@ int main()
             }
         }
 
-        qsort(colPegarVetor(c), n, sizeof(int), comparaFloat);
+        bool = meuQsort(c, comparaInt);
 
+        if(bool == FALSE)
+        {
+            printf("Erro");
+            return 0;
+        }
         printf("Vetor ordenado: ");
         for(i=0; i < n; i++)
         {
@@ -74,8 +87,13 @@ int main()
             }
         }
 
-        //funcao qsort
+        bool = meuQsort(c, comparaFloat);
 
+        if(bool == FALSE)
+        {
+            printf("Erro");
+            return 0;
+        }
         printf("Vetor ordenado: ");
         for(i=0; i < n; i++)
         {

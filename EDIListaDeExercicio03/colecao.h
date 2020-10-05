@@ -13,5 +13,6 @@ void *colRetirar(Colecao *c, void *chave);
 int colDestruir(Colecao *c);
 
 void *colBuscarPorIndice(Colecao *c, int indice);
+int meuQsort(Colecao *c, int (*comp)(void *, void *));
 
 #endif
