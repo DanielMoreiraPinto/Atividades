@@ -40,14 +40,16 @@ int main()
     printf("Preencha o vetor\n");
     switch(op)
     {
-        case 1:
-        int *elemp, elem, *auxPtr;
+        case 1: //opcao int
+        printf("");
+        int *elemPInt, elemInt, *auxPtrInt;
 
+        //coleta o vetor
         for(i=0; i < n; i++)
         {
-            scanf("%d", &elem);
-            elemp[i] = &elem;
-            bool = colInserir(c, elemp);
+            scanf("%d", &elemInt);
+            elemPInt = &elemInt;
+            bool = colInserir(c, elemPInt);
 
             if(bool == FALSE)
             {
@@ -56,32 +58,36 @@ int main()
             }
         }
 
+        //processa a colecao pela funcao
         bool = meuQsort(c, comparaInt);
-
         if(bool == FALSE)
         {
             printf("Erro");
             return 0;
         }
+
+        //exibe o vetor, ja esvaziando
         printf("Vetor ordenado: ");
         for(i=0; i < n; i++)
         {
-            auxPtr = (int*) colRetirar(c, colBuscarPorIndice(c, 0));
-            if(auxPtr != NULL)
+            auxPtrInt = (int*) colRetirar(c, colBuscarPorIndice(c, 0));
+            if(auxPtrInt != NULL)
             {
-                printf("%f ", *auxPtr);
+                printf("%d ", *auxPtrInt);
             }
         }
         break; //case 1
 
-        case 2:
-        float *elemp, elem, *auxPtr;
+        case 2: //opcao float
+        printf("");
+        float *elemPFloat, elemFloat, *auxPtrFloat;
 
+        //coleta o vetor
         for(i=0; i < n; i++)
         {
-            scanf("%f", &elem);
-            elemp[i] = &elem;
-            bool = colInserir(c, elemp);
+            scanf("%f", &elemFloat);
+            elemPFloat = &elemFloat;
+            bool = colInserir(c, elemPFloat);
 
             if(bool == FALSE)
             {
@@ -90,25 +96,27 @@ int main()
             }
         }
 
+        //processa a colecao pela funcao
         bool = meuQsort(c, comparaFloat);
-
         if(bool == FALSE)
         {
             printf("Erro");
             return 0;
         }
+
+        //exibe o vetor, ja esvaziando
         printf("Vetor ordenado: ");
         for(i=0; i < n; i++)
         {
-            auxPtr = (float*) colRetirar(c, colBuscarPorIndice(c, 0));
-            if(auxPtr != NULL)
+            auxPtrFloat = (float*) colRetirar(c, colBuscarPorIndice(c, 0));
+            if(auxPtrFloat != NULL)
             {
-                printf("%f ", *auxPtr);
+                printf("%f ", *auxPtrFloat);
             }
         }
         break; //case 2
         
-        default:
+        default: //opcao invalida
         printf("Opcao invalida");
         break; //default
     } //switch(op)

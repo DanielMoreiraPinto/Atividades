@@ -1,5 +1,5 @@
-#include "colecao.h"
 #include <stdlib.h>
+#include "colecao.h"
 
 typedef struct _colecao_
 {
