@@ -1,3 +1,7 @@
+/* 
+:: Definicao de .h de TAD pilha para tipos genericos.
+*/
+
 #ifndef STACK_H
 #define STACK_H
 

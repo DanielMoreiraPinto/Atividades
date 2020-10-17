@@ -20,6 +20,8 @@ Stack *stkCreate(int maxItems)
             stk->items = (void**)malloc(maxItems * sizeof(void*));
             if(stk->items != NULL)
             {
+                stk->maxItems = maxItems;
+                stk->top = -1;
                 return stk;
             }
             free(stk);
