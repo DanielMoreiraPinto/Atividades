@@ -1,6 +1,6 @@
 /*
 :: Implementacao da qDestroy() de um TAD de fila, seguindo implementacao de TAD
-    feita em aula.
+    feita em aula. Referente a terceira questao da lista de exercicios 04.
 */
 
 #include <stdlib.h>
