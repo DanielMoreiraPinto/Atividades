@@ -1,5 +1,5 @@
 /*
-:: Implementacao do programa usuario da pilha que detecta palindromos. Referente a segunda
+:: Implementacao do programa usuario da pilha que detecta strings xCy. Referente a primeira
     questao da lista de exercicios 04.
 */
 
@@ -14,31 +14,30 @@ int main()
 {
     Stack *stk;
     char string[MAXLENGTH], *character;
-    int stringSize, i, check, isPalindrome;
+    int stringSize, i, check, isXcy;
 
-    /* Coletando a string e salvando seu tamanho. Se so vier uma letra, ja alega palindromo. */
-    printf("Digite um palindromo: ");
+    /* Coletando a string e salvando seu tamanho. Se so vier uma letra, ja retorna falso. */
+    printf("Digite uma string: ");
     fgets(string, MAXLENGTH, stdin);
     //fgets enfia o \n na string, logo deve ser descontado do comprimento
     stringSize = strlen(string)-1;
     if(stringSize == 1) 
     {
-        printf("E palindromo.\n");
+        printf("Nao e xCy.\n");
         return 0;
     } 
 
     /* Criando a pilha. Como o programa e simples, se houver problema se roda novamente. */
-    stk = stkCreate(stringSize/2);
+    stk = stkCreate(stringSize);
     if(stk == NULL)
     {
         printf("Erro\n");
         return 0;
     }
     
-    /* Enfia letras na pilha ate chegar na metade (arredondada para baixo) da string. Nota-se
-        que isso significa nao colocar o caractere central de strings de comprimento impar. */
+    /* Enfia letras na pilha ate chegar na letra 'C' ou no final da string. */
     i = 0;
-    while(i < stringSize/2)
+    while(i < stringSize)
     {
         check = 0;
 
@@ -48,7 +47,6 @@ int main()
             *character = string[i];
             check = stkPush(stk, character);
         }
-        i++;
 
         //Se algum push nao for efetuado (stkPush retornou falso), nao faz sentido prosseguir
         if(check == 0)
@@ -56,48 +54,54 @@ int main()
             printf("Erro de memoria, rode novamente.\n");
             return 0;
         }
-    }
 
-    /* Posicionando o iterador na posicao correta da string. Se o numero de caracteres e impar,
-        como divisao quebrada de inteiro e arredondada para baixo, pula-se uma posicao alem da
-        "metade". Dessa forma ignora-se o caractere central, que nao esta na pilha. Tambem se
-        esta iniciando a variavel que dara o veredito, como verdadeira. */
-    if(stringSize % 2 == 0)
-    {
-        i = (stringSize / 2);
-        
+        //Verificando se foi encontrado 'C', aproveitando para usar a funcao stkTop()
+        character = (char*)stkTop(stk);
+        i++;
+        if(*character == 'C') break;
     }
-    else
-    {
-        i = (stringSize/2) + 1;
-    }
-    isPalindrome = 1;
+    
+    //Removendo 'C' e definindo o resultado do programa como true.
+    stkPop(stk);
+    isXcy = 1;
 
     /* Iterando pelo restante da string, comparando com os pops da pilha, que, a string sendo
-        palindromo, saem na mesma ordem que a segunda metade da string e lida. Se uma
-        comparacao apontar diferenca, ja se deve encerrar a iteracao. */
+        xCy, saem na mesma ordem que o trecho depois de C na string. Se uma comparacao apontar 
+        diferenca, ja se deve encerrar a iteracao. Observa-se que o iterador preservou a
+        posicao logo apos aquela na qual encontrou 'C'*/
     while(i < stringSize)
     {
         character = (char*)stkPop(stk);
+
         if(character != NULL)
         {
-            if(string[i] != *character)
+            //So podem haver elementos A, B e um unico C na string
+            if(string[i] != *character || (string[i] != 'A' && string[i] != 'B'))
             {
-                isPalindrome = 0;
+                isXcy = 0;
                 break;
             }
+        }
+        else
+        {
+            //Esse nulo pode ser por ter acabado a pilha mas ainda "ter vetor para ler"
+            break;
         }
         i++;
     }
 
+    /* Se ainda ha elementos na pilha ou o iterador nao chegou no final da string, nao e do 
+        tipo xCy. */
+    if(!stkIsEmpty(stk) || i < stringSize) isXcy = 0;
+
     /* Aplicando o veredito. */
-    if(isPalindrome)
+    if(isXcy)
     {
-        printf("E palindromo\n");
+        printf("E xCy.\n");
     }
     else
     {
-        printf("Nao e palindromo\n");
+        printf("Nao e xCy.\n");
     }
     
     /* Terminando de esvaziar a pilha e destruindo */
