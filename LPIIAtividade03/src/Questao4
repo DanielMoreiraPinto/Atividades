@@ -1,0 +1,5 @@
+São impressos erros devido a problemas de compilação, sendo o mais importante o Undandled exception type
+MinhaExcecao, pois origina do "throw me;" no corpo do finally na main. Como o método main não foi decladado
+utilizando "throws (...)", não é permitido lançar uma exceção. Isso vem principalmente para que métodos que
+chamem um outro que lança exceções sejam sempre "avisados" que deverão tratar uma possível exceção. Na verdade
+uma IDE já avisa antes de rodar que essa linha é problemática. 
