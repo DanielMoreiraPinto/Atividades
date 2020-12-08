@@ -79,11 +79,11 @@ main:
         cmp     DWORD PTR [%rbp-16], 19
         jle     .L11
 .L12:
-        lea     %rdi, [%rbp-48]
-        call    teste_pass
-        movzx   %eax, BYTE PTR passok(%rip)
-        cmp     %al, 1 # deletar
-        jne     .L14 # deletar
+        lea     %rdi, [%rbp-48] # deletar
+        call    teste_pass # substituir # mov     BYTE PTR passok(%rip), 1
+        movzx   %eax, BYTE PTR passok(%rip) # ou deletar
+        cmp     %al, 1 # ou deletar
+        jne     .L14 # ou deletar
         mov     %eax, DWORD PTR [%rbp-8]
         mov     %esi, %eax
         sar     %esi, 2

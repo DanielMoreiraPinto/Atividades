@@ -1,0 +1,204 @@
+Questão 1) É printado na tela 5030505
+
+Questão 2) Foi investigado o código de 64 Bits. Nele, a ação suficiente é deletar as linhas 84, 85 e 86 (contagem de linhas a partir de linha 0: passok:). Ali, o valor do passok vai ser comparado com "true" e só irá printar o código secreto se o resultado for "verdadeiro". Removendo a comparação e o jne nessas  linhas faz com que o código seja impresso na tela seja qual for a senha digitada.  
+
+Questão 3)
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int i=0, acum=0;
+    while(i < 10) {
+        acum += i;
+        i++;
+    }
+    return 0;
+}
+
+Questão 4) (x86-64 gcc 10.2)
+
+Letra a)
+
+
+Letra b)
+.LC0:
+        .string "%d %d %d"
+.LC1:
+        .string "%d"
+main:
+        push    rbp
+        mov     rbp, rsp
+        sub     rsp, 16
+        lea     rcx, [rbp-16]
+        lea     rdx, [rbp-12]
+        lea     rax, [rbp-8]
+        mov     rsi, rax
+        mov     edi, OFFSET FLAT:.LC0
+        mov     eax, 0
+        call    scanf
+        mov     eax, DWORD PTR [rbp-8]
+        mov     DWORD PTR [rbp-4], eax
+        mov     eax, DWORD PTR [rbp-12]
+        cmp     DWORD PTR [rbp-4], eax
+        jge     .L2
+        mov     eax, DWORD PTR [rbp-12]
+        mov     DWORD PTR [rbp-4], eax
+.L2:
+        mov     eax, DWORD PTR [rbp-16]
+        cmp     DWORD PTR [rbp-4], eax
+        jge     .L3
+        mov     eax, DWORD PTR [rbp-16]
+        mov     DWORD PTR [rbp-4], eax
+.L3:
+        mov     eax, DWORD PTR [rbp-4]
+        mov     esi, eax
+        mov     edi, OFFSET FLAT:.LC1
+        mov     eax, 0
+        call    printf
+        mov     eax, 0
+        leave
+        ret
+
+Letra c) (permite potência negativa)
+.LC0:
+        .string "%d %d"
+.LC2:
+        .string "%f"
+main:
+        push    rbp
+        mov     rbp, rsp
+        sub     rsp, 32
+        lea     rdx, [rbp-20]
+        lea     rax, [rbp-16]
+        mov     rsi, rax
+        mov     edi, OFFSET FLAT:.LC0
+        mov     eax, 0
+        call    scanf
+        mov     eax, DWORD PTR [rbp-16]
+        pxor    xmm0, xmm0
+        cvtsi2ss        xmm0, eax
+        movss   DWORD PTR [rbp-12], xmm0
+        mov     eax, DWORD PTR [rbp-20]
+        mov     DWORD PTR [rbp-8], eax
+        mov     eax, DWORD PTR [rbp-20]
+        test    eax, eax
+        jns     .L2
+        neg     DWORD PTR [rbp-8]
+.L2:
+        mov     DWORD PTR [rbp-4], 0
+        jmp     .L3
+.L4:
+        mov     eax, DWORD PTR [rbp-16]
+        pxor    xmm0, xmm0
+        cvtsi2ss        xmm0, eax
+        movss   xmm1, DWORD PTR [rbp-12]
+        mulss   xmm0, xmm1
+        movss   DWORD PTR [rbp-12], xmm0
+        add     DWORD PTR [rbp-4], 1
+.L3:
+        mov     eax, DWORD PTR [rbp-8]
+        sub     eax, 1
+        cmp     DWORD PTR [rbp-4], eax
+        jl      .L4
+        mov     eax, DWORD PTR [rbp-20]
+        test    eax, eax
+        jns     .L5
+        movss   xmm0, DWORD PTR .LC1[rip]
+        divss   xmm0, DWORD PTR [rbp-12]
+        movss   DWORD PTR [rbp-12], xmm0
+.L5:
+        pxor    xmm2, xmm2
+        cvtss2sd        xmm2, DWORD PTR [rbp-12]
+        movq    rax, xmm2
+        movq    xmm0, rax
+        mov     edi, OFFSET FLAT:.LC2
+        mov     eax, 1
+        call    printf
+        mov     eax, 0
+        leave
+        ret
+.LC1:
+        .long   1065353216
+
+Letra d)
+.LC0:
+        .string "%d"
+main:
+        push    rbp
+        mov     rbp, rsp
+        sub     rsp, 32
+        mov     DWORD PTR [rbp-4], 0
+        mov     DWORD PTR [rbp-8], 0
+        jmp     .L2
+.L3:
+        lea     rdx, [rbp-32]
+        mov     eax, DWORD PTR [rbp-8]
+        cdqe
+        sal     rax, 2
+        add     rax, rdx
+        mov     rsi, rax
+        mov     edi, OFFSET FLAT:.LC0
+        mov     eax, 0
+        call    scanf
+        add     DWORD PTR [rbp-8], 1
+.L2:
+        cmp     DWORD PTR [rbp-8], 4
+        jle     .L3
+        mov     DWORD PTR [rbp-8], 0
+        jmp     .L4
+.L5:
+        mov     eax, DWORD PTR [rbp-8]
+        cdqe
+        mov     eax, DWORD PTR [rbp-32+rax*4]
+        add     DWORD PTR [rbp-4], eax
+        add     DWORD PTR [rbp-8], 1
+.L4:
+        cmp     DWORD PTR [rbp-8], 4
+        jle     .L5
+        mov     eax, DWORD PTR [rbp-4]
+        mov     esi, eax
+        mov     edi, OFFSET FLAT:.LC0
+        mov     eax, 0
+        call    printf
+        mov     eax, 0
+        leave
+        ret
+
+Letra e)
+.LC0:
+        .string "%d"
+main:
+        push    rbp
+        mov     rbp, rsp
+        sub     rsp, 16
+        lea     rax, [rbp-8]
+        mov     rsi, rax
+        mov     edi, OFFSET FLAT:.LC0
+        mov     eax, 0
+        call    scanf
+        mov     eax, DWORD PTR [rbp-8]
+        mov     DWORD PTR [rbp-4], eax
+        mov     eax, DWORD PTR [rbp-8]
+        sub     eax, 1
+        mov     DWORD PTR [rbp-8], eax
+        jmp     .L2
+.L3:
+        mov     eax, DWORD PTR [rbp-8]
+        mov     edx, DWORD PTR [rbp-4]
+        imul    eax, edx
+        mov     DWORD PTR [rbp-4], eax
+        mov     eax, DWORD PTR [rbp-8]
+        sub     eax, 1
+        mov     DWORD PTR [rbp-8], eax
+.L2:
+        mov     eax, DWORD PTR [rbp-8]
+        cmp     eax, 1
+        jg      .L3
+        mov     eax, DWORD PTR [rbp-4]
+        mov     esi, eax
+        mov     edi, OFFSET FLAT:.LC0
+        mov     eax, 0
+        call    printf
+        mov     eax, 0
+        leave
+        ret
