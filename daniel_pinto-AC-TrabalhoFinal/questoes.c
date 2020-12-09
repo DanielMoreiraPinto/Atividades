@@ -14,17 +14,26 @@ e) calcula fatorial de um número
 #include <stdlib.h>
 
 // a) Imprimir a sequencia de fibonacci a partir de 2 números quaisquer
-
+/*
 int main()
 {
-  int x, y;
+  int k=20, i, ant, at, prox;
 
-  scanf("%d %d", &x, &y);
+  scanf("%d %d", &ant, &at);
 
-  
+  printf("%d\n", ant);
+  printf("%d\n", at);
+  prox = ant + at;
+  for(i=0; i < k-2; i++) {
+    printf("%d\n", prox);
+    ant = at;
+    at = prox;
+    prox = ant + at;
+  }
 
   return 0;
 }
+*/
 
 // b) imprimir o maior número dentre 3 quaisquer
 /*
