@@ -1,0 +1,43 @@
+{ 
+    gcc -o ztiny main.c analyze.c cgen.c code.c parse.c scan.c symtab.c util.c
+    ./ztiny ztinycode2.tny
+}
+read x; { input an integer }
+
+while x < 1 do
+    x := x + 1;
+    write x
+endwhile;
+
+{while := 3;}
+
+var_1avel := 5;
+
+{mediaMensal := var_1avel < 12;}
+
+if 0 + x then
+    write 5
+endif;
+
+if 0 < x then { don't compute if x <= 0 }
+  fact := 1;
+  repeat
+    fact := fact * x;
+    x := x - 1
+  until x = 0;
+  write fact  { output factorial of x }
+endif
+
+
+
+
+
+
+if 0 < x then { don't compute if x <= 0 }
+  fact := 1;
+  repeat
+    fact := fact * x;
+    x := x - 1
+  until x = 0;
+  write fact  { output factorial of x }
+endif

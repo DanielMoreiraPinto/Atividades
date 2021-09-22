@@ -1,0 +1,43 @@
+{ 
+    gcc -o ztiny main.c analyze.c cgen.c code.c parse.c scan.c symtab.c util.c
+    ./ztiny caso1.tny
+    gcc -o ztinymachine tm.c
+    ./ztinymachine caso1.tm
+}
+
+
+{Caso de teste 1:}
+
+
+read var1;
+total := var1 + 1;
+write total;
+
+
+
+{Caso de teste 2:}
+
+
+read x;
+while x<10 do
+   x:=x+1
+endwhile;
+write x;
+
+
+
+
+{Caso de teste 3:}
+
+
+read x;
+while x<5 do
+  write x;
+  x:=x+1
+endwhile
+
+
+
+
+
+

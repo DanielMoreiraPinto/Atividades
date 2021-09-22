@@ -1,0 +1,19 @@
+{ 
+    gcc -o ztiny main.c analyze.c cgen.c code.c parse.c scan.c symtab.c util.c
+    ./ztiny ztinycode.tny
+    gcc -o ztinymachine tm.c
+    ./ztinymachine ztinycode3.tm
+}
+if 0 < 2 then
+    write 23
+endif;
+write 355;
+x := 2;
+write x;
+while x < 3 do
+    x := x + 1;
+    write x
+endwhile;
+write 255;
+write 385;
+write 341
