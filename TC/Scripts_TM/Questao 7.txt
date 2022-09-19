@@ -1,0 +1,62 @@
+//Syntax:
+
+//-------CONFIGURATION
+name: cadeia de 1 par ou impar - Questao 7
+init: q0
+accept: q8
+
+//-------DELTA FUNCTION:
+// Inicio
+q0,*
+q0,*,>
+
+q0,_
+q5,_,>
+
+q0,1
+q1,1,>
+
+// Estado impar
+q1,1
+q2,1,>
+
+q1,_
+q3,_,<
+
+// Estado par
+q2,1
+q1,1,>
+
+q2,_
+q5,_,<
+
+// Escreve IMPAR
+q3,1
+q3,_,<
+
+q3,_
+q4,I,>
+
+q4,_
+q5,M,>
+
+// Escreve PAR
+q5,1
+q5,_,<
+
+q5,_
+q6,P,>
+
+q6,_
+q7,A,>
+
+q7,_
+q8,R,>
+
+//[current_state],[read_symbol]
+//[new_state],[write_symbol],[>|<|-]
+
+// < = left
+// > = right
+// - = hold
+// use underscore for blank cells

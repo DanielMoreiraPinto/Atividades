@@ -1,0 +1,74 @@
+# Antes
+
+aplicacao_alunos/boletim.py
+    M 10:4 Boletim.add_nota - B (6)
+    C 1:0 Boletim - A (3)
+    M 23:4 Boletim.situacao - A (2)
+    M 3:4 Boletim.__init__ - A (1)
+    M 7:4 Boletim.calc_media - A (1)
+    M 28:4 Boletim.__str__ - A (1)
+aplicacao_alunos/registro_alunos.py
+    C 3:0 RegistroAlunos - A (3)
+    M 8:4 RegistroAlunos.cadastrar_boletim - A (2)
+    M 13:4 RegistroAlunos.__str__ - A (2)
+    M 5:4 RegistroAlunos.__init__ - A (1)
+aplicacao_alunos/controle_alunos.py
+    F 4:0 main - B (8)
+
+aplicacao_alunos/boletim.py
+    LOC: 29
+aplicacao_alunos/registro_alunos.py
+    LOC: 20
+aplicacao_alunos/controle_alunos.py
+    LOC: 40
+
+aplicacao_alunos/boletim.py:2:1: W293 blank line contains whitespace
+aplicacao_alunos/boletim.py:6:1: W293 blank line contains whitespace
+aplicacao_alunos/boletim.py:9:1: W293 blank line contains whitespace
+aplicacao_alunos/boletim.py:13:9: E722 do not use bare 'except'
+aplicacao_alunos/boletim.py:22:1: W293 blank line contains whitespace
+aplicacao_alunos/boletim.py:27:1: W293 blank line contains whitespace
+aplicacao_alunos/boletim.py:29:69: W292 no newline at end of file
+
+aplicacao_alunos/registro_alunos.py:3:1: E302 expected 2 blank lines, found 1
+aplicacao_alunos/registro_alunos.py:4:1: W293 blank line contains whitespace
+aplicacao_alunos/registro_alunos.py:7:1: W293 blank line contains whitespace
+aplicacao_alunos/registro_alunos.py:12:1: W293 blank line contains whitespace
+aplicacao_alunos/registro_alunos.py:18:1: W293 blank line contains whitespace
+aplicacao_alunos/registro_alunos.py:19:1: W293 blank line contains whitespace
+aplicacao_alunos/registro_alunos.py:20:1: W293 blank line contains whitespace
+aplicacao_alunos/registro_alunos.py:20:5: W292 no newline at end of file
+
+aplicacao_alunos/controle_alunos.py:4:1: E302 expected 2 blank lines, found 1
+aplicacao_alunos/controle_alunos.py:12:1: W293 blank line contains whitespace
+aplicacao_alunos/controle_alunos.py:29:1: W293 blank line contains whitespace
+aplicacao_alunos/controle_alunos.py:32:1: W293 blank line contains whitespace
+aplicacao_alunos/controle_alunos.py:35:1: W293 blank line contains whitespace
+aplicacao_alunos/controle_alunos.py:38:1: W293 blank line contains whitespace
+aplicacao_alunos/controle_alunos.py:39:1: E305 expected 2 blank lines after class or function definition, found 1
+aplicacao_alunos/controle_alunos.py:40:11: W292 no newline at end of file
+
+# Depois
+
+aplicacao_alunos/boletim.py
+    M 10:4 Boletim.add_nota - B (6)
+    C 1:0 Boletim - A (3)
+    M 24:4 Boletim.situacao - A (2)
+    M 3:4 Boletim.__init__ - A (1)
+    M 7:4 Boletim.calc_media - A (1)
+    M 29:4 Boletim.__str__ - A (1)
+aplicacao_alunos/registro_alunos.py
+    C 4:0 RegistroAlunos - A (3)
+    M 9:4 RegistroAlunos.cadastrar_boletim - A (2)
+    M 14:4 RegistroAlunos.__str__ - A (2)
+    M 6:4 RegistroAlunos.__init__ - A (1)
+aplicacao_alunos/controle_alunos.py
+    F 23:0 main - A (5)
+    F 6:0 inserir_notas - A (4)
+
+aplicacao_alunos/boletim.py
+    LOC: 30
+aplicacao_alunos/registro_alunos.py
+    LOC: 18
+aplicacao_alunos/controle_alunos.py
+    LOC: 45

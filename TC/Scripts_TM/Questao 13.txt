@@ -1,0 +1,83 @@
+//Syntax:
+
+//-------CONFIGURATION
+name: Iguais - Questao 13
+init: q0
+accept: q6, q7, q9
+
+//-------DELTA FUNCTION:
+// Le da esquerda se ler vazio supoe que sao iguais
+// Se ler 1 da direita entao a direita e maior
+q0,*
+q0,*,>
+
+q0,0
+q7,1,>
+
+q0,1
+q1,_,>
+
+// Da direita e maior
+q7,1
+q8,1,>
+
+q8,1
+q8,1,>
+
+q8,_
+q9,0,<
+
+q9,1
+q9,_,<
+
+q9,0
+q9,_,<
+
+// Leu 1 da esquerda e apaga da direita e testa se o da direita e menor
+q1,1
+q1,1,>
+
+q1,0
+q2,0,>
+
+q2,1
+q3,1,>
+
+q2,_
+q6,_,<
+
+q3,1
+q3,1,>
+
+q3,_
+q4,_,<
+
+q4,1
+q5,_,<
+
+// Da direita e menor
+q6,0
+q6,0,<
+
+q6,1
+q6,_,<
+
+// Volta ao inicio
+q5,1
+q5,1,<
+
+q5,0
+q5,0,<
+
+q5,_
+q0,_,>
+
+
+
+//[current_state],[read_symbol]
+//[new_state],[write_symbol],[>|<|-]
+
+// < = left
+// > = right
+// - = hold
+// use underscore for blank cells

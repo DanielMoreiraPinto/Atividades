@@ -1,0 +1,65 @@
+//Syntax:
+
+//-------CONFIGURATION
+name: Aceita 0^N10^N1 - Questao 4
+init: q0
+accept: q6
+
+//-------DELTA FUNCTION:
+// Inicio
+q0,*
+q0,*,>
+
+// Marcando o primeiro 0 desmarcado na esquerda
+q0,0
+q1,x,>
+
+// Se chegou ao final da esquerda deve verificar se a direita acabou
+q0,1
+q5,1,>
+
+q5,x
+q6,x,>
+
+// Indo ao final da direita e marcando o ultimo 0 desmarcado
+
+q1,0
+q1,0,>
+
+q1,1
+q2,1,>
+
+q2,0
+q2,0,>
+
+q2,x
+q3,x,<
+
+q2,1
+q3,1,<
+
+q3,x
+q3,x,<
+
+q3,0
+q4,x,<
+
+// Voltando para o primeiro desmarcado da esquerda
+
+q4,0
+q4,0,<
+
+q4,1
+q4,1,<
+
+q4,x
+q0,x,>
+
+
+//[current_state],[read_symbol]
+//[new_state],[write_symbol],[>|<|-]
+
+// < = left
+// > = right
+// - = hold
+// use underscore for blank cells

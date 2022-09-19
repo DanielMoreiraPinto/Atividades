@@ -1,0 +1,56 @@
+//Syntax:
+
+//-------CONFIGURATION
+name: Subrai - Questao 10
+init: q0
+accept: q4, q5
+
+//-------DELTA FUNCTION:
+// Inicio
+q0,*
+q0,*,>
+
+// Indo ao final da fita
+q0,1
+q0,1,>
+
+q0,0
+q0,0,>
+
+q0,_
+q1,_,<
+
+// Removendo 1 do subtraendo e voltando ao minuendo
+q1,1
+q2,_,<
+
+q1,0
+q4,_,<
+
+q2,1
+q2,1,<
+
+q2,0
+q2,0,<
+
+q2,_
+q3,_,>
+
+// Removendo 1 do minuendo
+q3,1
+q0,_,>
+
+q3,0
+q5,_,>
+
+q5,1
+q5,_,>
+
+
+//[current_state],[read_symbol]
+//[new_state],[write_symbol],[>|<|-]
+
+// < = left
+// > = right
+// - = hold
+// use underscore for blank cells

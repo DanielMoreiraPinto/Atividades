@@ -1,0 +1,84 @@
+//Syntax:
+
+//-------CONFIGURATION
+name: Palindromo - Questao 6
+init: q0
+accept: q6
+
+//-------DELTA FUNCTION:
+// Inicio 
+q0,*
+q0,*,>
+
+q0,0
+q1,_,>
+
+q0,1
+q4,_,>
+
+q0,_
+q6,_,>
+
+// Leu 0
+
+q1,0
+q1,0,>
+
+q1,1
+q1,1,>
+
+q1,*
+q1,*,>
+
+q1,_
+q2,_,<
+
+// Leu 1
+
+q4,0
+q4,0,>
+
+q4,1
+q4,1,>
+
+q4,*
+q4,*,>
+
+q4,_
+q5,_,<
+
+// Manteve palindromo ou nao ao ler 0
+q2,0
+q3,_,<
+
+q2,_
+q6,_,>
+
+// Manteve palindromo ou nao ao ler 1
+q5,1
+q3,_,<
+
+q5,_
+q6,_,>
+
+// Manteve palindromo
+q3,0
+q3,0,<
+
+q3,1
+q3,1,<
+
+q3,*
+q3,*,<
+
+q3,_
+q0,_,>
+
+
+//[current_state],[read_symbol]
+//[new_state],[write_symbol],[>|<|-]
+
+// < = left
+// > = right
+// - = hold
+// use underscore for blank cells

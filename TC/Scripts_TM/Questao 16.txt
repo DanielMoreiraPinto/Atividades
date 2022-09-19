@@ -1,0 +1,73 @@
+//Syntax:
+
+//-------CONFIGURATION
+name: Move para direita - Questao 16
+init: q0
+accept: q7
+
+//-------DELTA FUNCTION:
+// Inicio 
+q0,*
+q0,*,>
+
+// Marcando 1 como movido
+q0,1
+q1,0,>
+
+q0,0
+q5,1,>
+
+// Movendo 1
+q1,1
+q1,1,>
+
+q1,_
+q2,0,>
+
+q1,0
+q2,0,>
+
+q2,1
+q2,1,>
+
+q2,_
+q3,1,<
+
+// Lendo o proximo a mover
+q3,1
+q3,1,<
+
+q3,0
+q4,0,<
+
+q4,1
+q4,1,<
+
+q4,0
+q0,0,>
+
+// Movendo uma posicao para a esquerda
+q5,1
+q5,1,>
+
+q5,_
+q6,_,<
+
+q6,1
+q7,_,<
+
+// Apagando o restante da fita
+q7,1
+q7,1,<
+
+q7,0
+q7,_,<
+
+
+//[current_state],[read_symbol]
+//[new_state],[write_symbol],[>|<|-]
+
+// < = left
+// > = right
+// - = hold
+// use underscore for blank cells

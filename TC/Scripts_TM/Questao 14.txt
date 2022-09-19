@@ -1,0 +1,46 @@
+//Syntax:
+
+//-------CONFIGURATION
+name: Incremento binario - Questao 14
+init: q0
+accept: q3
+
+//-------DELTA FUNCTION:
+// Inicio 
+q0,*
+q0,*,>
+
+// Indo ao final do numero
+q0,1
+q0,1,>
+
+q0,0
+q0,0,>
+
+q0,_
+q1,_,<
+
+// Incrementando digito sem adicional
+q1,0
+q3,1,<
+
+q1,1
+q2,0,<
+
+// Incrementando digito com adicional
+q2,0
+q3,1,<
+
+q2,1
+q2,0,<
+
+q2,_
+q3,1,<
+
+//[current_state],[read_symbol]
+//[new_state],[write_symbol],[>|<|-]
+
+// < = left
+// > = right
+// - = hold
+// use underscore for blank cells

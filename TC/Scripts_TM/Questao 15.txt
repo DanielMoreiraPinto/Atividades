@@ -1,0 +1,53 @@
+//Syntax:
+
+//-------CONFIGURATION
+name: Duplica - Questao 15
+init: q0
+accept: q0
+
+//-------DELTA FUNCTION:
+// Inicio 
+q0,*
+q0,*,>
+
+// Marcando 1 como copiado
+q0,1
+q1,0,>
+
+// Copiando 1
+q1,1
+q1,1,>
+
+q1,_
+q2,0,>
+
+q1,0
+q2,0,>
+
+q2,1
+q2,1,>
+
+q2,_
+q3,1,<
+
+// Desmarcando o marcado como copiado e lendo o proximo
+q3,1
+q3,1,<
+
+q3,0
+q4,0,<
+
+q4,1
+q4,1,<
+
+q4,0
+q0,1,>
+
+
+//[current_state],[read_symbol]
+//[new_state],[write_symbol],[>|<|-]
+
+// < = left
+// > = right
+// - = hold
+// use underscore for blank cells

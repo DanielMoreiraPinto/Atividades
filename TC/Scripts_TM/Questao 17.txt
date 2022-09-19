@@ -1,0 +1,84 @@
+//Syntax:
+
+//-------CONFIGURATION
+name: Divide - Questao 17
+init: q0
+accept: q4
+
+//-------DELTA FUNCTION:
+// Inicio
+q0,*
+q4,*,>
+
+// Indo ao final da fita e adicionando o separador do resultado
+// se ainda necessario
+q0,1
+q0,1,>
+
+q0,0
+q1,0,>
+
+q1,1
+q1,1,>
+
+q1,_
+q2,0,<
+
+q1,x
+q2,x,<
+
+q1,0
+q2,0,<
+
+// Marcando 1 do divisor e voltando ao dividendo
+q2,1
+q3,x,<
+
+q2,x
+q2,x,<
+
+q2,0
+q5,0,>
+
+q3,1
+q3,1,<
+
+q3,0
+q3,0,<
+
+q3,_
+q4,_,>
+
+q3,x
+q4,x,>
+
+// Marcando 1 do dividendo
+q4,1
+q0,x,>
+
+// Adicionando 1 no quociente e desmarcando o divisor
+q5,x
+q5,1,>
+
+q5,0
+q5,0,>
+
+q5,1
+q5,1,>
+
+q5,_
+q6,1,<
+
+q6,1
+q6,1,<
+
+q6,0
+q2,0,<
+
+//[current_state],[read_symbol]
+//[new_state],[write_symbol],[>|<|-]
+
+// < = left
+// > = right
+// - = hold
+// use underscore for blank cells
